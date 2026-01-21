@@ -18,6 +18,7 @@ public class FileProcessor {
         while (!executorService.isTerminated()) {
             // wait for all tasks to finish
         }
+        
 
         System.out.println("All files processed.");
         System.out.println("Total files processed: " + counter.getCount());
