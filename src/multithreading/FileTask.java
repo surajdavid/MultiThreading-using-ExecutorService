@@ -1,6 +1,6 @@
 package multithreading;
 
-public class FileTask implements Runnable {
+public class FileTask {
 
     private final String fileName;
     private final TaskCounter counter;
@@ -10,8 +10,11 @@ public class FileTask implements Runnable {
         this.counter = counter;
     }
 
-    @Override
-    public void run() {
+   
+    public void process() {
+    	
+    	long start = System.currentTimeMillis();
+    	
         System.out.println(Thread.currentThread().getName()
                 + " started processing " + fileName);
 
@@ -26,5 +29,10 @@ public class FileTask implements Runnable {
 
         System.out.println(Thread.currentThread().getName()
                 + " finished processing " + fileName);
+        
+        long end = System.currentTimeMillis();
+
+        System.out.println(Thread.currentThread().getName()
+                + " processed " + fileName + " in " + (end - start) + " ms");
     }
 }
